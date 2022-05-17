@@ -47,6 +47,19 @@ class PatientForm(forms.ModelForm):
         fields=['address','mobile','status','symptoms','profile_pic']
 
 
+class NurseUserForm(forms.ModelForm):
+    class Meta:
+        model=User
+        fields=['first_name','last_name','username','password']
+        widgets = {
+        'password': forms.PasswordInput()
+        }
+class NurseForm(forms.ModelForm):
+    class Meta:
+        model=models.Nurse
+        fields=['address','mobile','status','profile_pic']
+
+
 
 class AppointmentForm(forms.ModelForm):
     doctorId=forms.ModelChoiceField(queryset=models.Doctor.objects.all().filter(status=True),empty_label="Doctor Name and Department", to_field_name="user_id")

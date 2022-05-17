@@ -24,6 +24,7 @@ urlpatterns = [
     
     path('adminlogin', LoginView.as_view(template_name='hospital/adminlogin.html')),
     path('doctorlogin', LoginView.as_view(template_name='hospital/doctorlogin.html')),
+    path('nurselogin', LoginView.as_view(template_name='hospital/nurselogin.html')),
     path('patientlogin', LoginView.as_view(template_name='hospital/patientlogin.html')),
 
 
@@ -87,6 +88,17 @@ urlpatterns +=[
     path('doctor-view-appointment', views.doctor_view_appointment_view,name='doctor-view-appointment'),
     path('doctor-delete-appointment',views.doctor_delete_appointment_view,name='doctor-delete-appointment'),
     path('delete-appointment/<int:pk>', views.delete_appointment_view,name='delete-appointment'),
+]
+
+
+#---------FOR NURSE RELATED URLS-------------------------------------
+urlpatterns +=[
+    path('nurse-dashboard', views.nurse_dashboard_view,name='nurse-dashboard'),
+    path('search', views.search_view,name='search'),
+
+    # path('nurse-patient', views.nurse_patient_view,name='nurse-patient'),
+    # path('nurse-view-patient', views.nurse_view_patient_view,name='nurse-view-patient'),
+    # path('nurse-view-discharge-patient',views.nurse_view_discharge_patient_view,name='nurse-view-discharge-patient'),
 ]
 
 

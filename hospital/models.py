@@ -1,3 +1,4 @@
+from email.errors import MalformedHeaderDefect
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -10,12 +11,17 @@ departments=[('Cardiologist','Cardiologist'),
 ('Anesthesiologists','Anesthesiologists'),
 ('Colon and Rectal Surgeons','Colon and Rectal Surgeons')
 ]
+
+gender=[('Male','Male'),
+         ('Female','Female')]
+
+
 class Doctor(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     profile_pic= models.ImageField(upload_to='profile_pic/DoctorProfilePic/',null=True,blank=True)
     address = models.CharField(max_length=40)
     date_of_birth = models.CharField(max_length=20)
-    gender = models.CharField(max_length=10)
+    gender = models.CharField(max_length=10,choices=gender,default='Male')
     mobile = models.CharField(max_length=20,null=True)
     department= models.CharField(max_length=50,choices=departments,default='Cardiologist')
     status=models.BooleanField(default=False)

@@ -80,12 +80,15 @@
                 {% render_field userForm.username class="form-control" placeholder="Username" %}
               </div>
               <div class="form-group">
-                {% render_field doctorForm.department class="form-control" placeholder="Department" %}
+                {% render_field doctorForm.date_of_birth required="required" class="form-control" placeholder="Date Of Birth" %}
               </div>
               <div class="form-group">
                 {% render_field doctorForm.address class="form-control" placeholder="Address" %}
               </div>
-
+              
+              <div class="form-group">
+                {% render_field doctorForm.department class="form-control" placeholder="Department" %}
+              </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
@@ -94,13 +97,17 @@
               <div class="form-group">
                 {% render_field userForm.password class="form-control" placeholder="Password" %}
               </div>
+              
+              <div class="form-group">
+                {% render_field doctorForm.gender required="required" class="form-control" placeholder="Gender" %}
+              </div>
               <div class="form-group">
                 {% render_field doctorForm.mobile class="form-control"  placeholder="Mobile" %}
               </div>
               <div class="form-group">
                 {% render_field doctorForm.profile_pic required="required" class="form-control" placeholder="Profile Picture" %}
               </div>
-
+              
             </div>
           </div>
           <button type="submit" class="btnSubmit">Register</button>

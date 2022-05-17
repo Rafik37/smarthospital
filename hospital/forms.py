@@ -29,7 +29,7 @@ class DoctorForm(forms.ModelForm):
 
 
 
-#for student related form
+#for nurse related form
 class NurseUserForm(forms.ModelForm):
     class Meta:
         model=User
@@ -40,6 +40,32 @@ class NurseUserForm(forms.ModelForm):
 class NurseForm(forms.ModelForm):
     class Meta:
         model=models.Nurse
+        fields=['address','gender','date_of_birth','mobile','status','profile_pic']
+
+#for receptionist related form
+class ReceptionistUserForm(forms.ModelForm):
+    class Meta:
+        model=User
+        fields=['first_name','last_name','username','password']
+        widgets = {
+        'password': forms.PasswordInput()
+        }
+class ReceptionistForm(forms.ModelForm):
+    class Meta:
+        model=models.Receptionist
+        fields=['address','gender','date_of_birth','mobile','status','profile_pic']
+
+#for paramedical related form
+class ParamedicalUserForm(forms.ModelForm):
+    class Meta:
+        model=User
+        fields=['first_name','last_name','username','password']
+        widgets = {
+        'password': forms.PasswordInput()
+        }
+class ParamedicalForm(forms.ModelForm):
+    class Meta:
+        model=models.Paramedical
         fields=['address','gender','date_of_birth','mobile','status','profile_pic']
 
 

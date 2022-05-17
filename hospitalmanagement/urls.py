@@ -1,15 +1,3 @@
-"""
-
-Developed By : sumit kumar
-facebook : fb.com/sumit.luv
-Youtube :youtube.com/lazycoders
-
-
-"""
-
-
-
-
 from django.contrib import admin
 from django.urls import path
 from hospital import views
@@ -55,14 +43,14 @@ urlpatterns = [
     path('reject-doctor/<int:pk>', views.reject_doctor_view,name='reject-doctor'),
     path('admin-view-doctor-specialisation',views.admin_view_doctor_specialisation_view,name='admin-view-doctor-specialisation'),
 
-    # path('admin-nurse', views.admin_nurse_view,name='admin-nurse'),
-    # path('admin-view-nurse', views.admin_view_nurse_view,name='admin-view-nurse'),
-    # path('delete-nurse-from-hospital/<int:pk>', views.delete_nurse_from_hospital_view,name='delete-nurse-from-hospital'),
-    # path('update-nurse/<int:pk>', views.update_nurse_view,name='update-nurse'),
-    # path('admin-add-nurse', views.admin_add_nurse_view,name='admin-add-nurse'),
-    # path('admin-approve-nurse', views.admin_approve_nurse_view,name='admin-approve-nurse'),
-    # path('approve-nurse/<int:pk>', views.approve_nurse_view,name='approve-nurse'),
-    # path('reject-nurse/<int:pk>', views.reject_nurse_view,name='reject-nurse'),
+    path('admin-nurse', views.admin_nurse_view,name='admin-nurse'),
+    path('admin-view-nurse', views.admin_view_nurse_view,name='admin-view-nurse'),
+    path('delete-nurse-from-hospital/<int:pk>', views.delete_nurse_from_hospital_view,name='delete-nurse-from-hospital'),
+    path('update-nurse/<int:pk>', views.update_nurse_view,name='update-nurse'),
+    path('admin-add-nurse', views.admin_add_nurse_view,name='admin-add-nurse'),
+    path('admin-approve-nurse', views.admin_approve_nurse_view,name='admin-approve-nurse'),
+    path('approve-nurse/<int:pk>', views.approve_nurse_view,name='approve-nurse'),
+    path('reject-nurse/<int:pk>', views.reject_nurse_view,name='reject-nurse'),
 
     path('admin-patient', views.admin_patient_view,name='admin-patient'),
     path('admin-view-patient', views.admin_view_patient_view,name='admin-view-patient'),
@@ -116,7 +104,3 @@ urlpatterns +=[
     path('patient-discharge', views.patient_discharge_view,name='patient-discharge'),
 
 ]
-
-#Developed By : sumit kumar
-#facebook : fb.com/sumit.luv
-#Youtube :youtube.com/lazycoders

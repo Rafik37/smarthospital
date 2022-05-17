@@ -1,4 +1,3 @@
-from email.errors import MalformedHeaderDefect
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -11,19 +10,10 @@ departments=[('Cardiologist','Cardiologist'),
 ('Anesthesiologists','Anesthesiologists'),
 ('Colon and Rectal Surgeons','Colon and Rectal Surgeons')
 ]
-
-gender=[('Male','Male'),
-         ('Female','Female')]
-
-
 class Doctor(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     profile_pic= models.ImageField(upload_to='profile_pic/DoctorProfilePic/',null=True,blank=True)
     address = models.CharField(max_length=40)
-    date_of_birth = models.CharField(max_length=20)
-    gender = models.CharField(max_length=10,choices=gender,default='Male')
-    date_of_birth = models.CharField(max_length=20, default="01/01/2000")
-    gender = models.CharField(max_length=10, default="male")
     mobile = models.CharField(max_length=20,null=True)
     department= models.CharField(max_length=50,choices=departments,default='Cardiologist')
     status=models.BooleanField(default=False)
@@ -36,65 +26,12 @@ class Doctor(models.Model):
     def __str__(self):
         return "{} ({})".format(self.user.first_name,self.department)
 
-class Nurse(models.Model):
-    user=models.OneToOneField(User,on_delete=models.CASCADE)
-    profile_pic= models.ImageField(upload_to='profile_pic/NurseProfilePic/',null=True,blank=True)
-    address = models.CharField(max_length=40)
-    date_of_birth = models.CharField(max_length=20, default="01/01/2000")
-    gender = models.CharField(max_length=10, default="male")
-    mobile = models.CharField(max_length=20,null=True)
-    status=models.BooleanField(default=False)
-    @property
-    def get_name(self):
-        return self.user.first_name+" "+self.user.last_name
-    @property
-    def get_id(self):
-        return self.user.id
-    def __str__(self):
-        return self.user.first_name
-
-class Receptionist(models.Model):
-    user=models.OneToOneField(User,on_delete=models.CASCADE)
-    profile_pic= models.ImageField(upload_to='profile_pic/ReceptionistProfilePic/',null=True,blank=True)
-    address = models.CharField(max_length=40)
-    date_of_birth = models.CharField(max_length=20)
-    gender = models.CharField(max_length=10)
-    mobile = models.CharField(max_length=20,null=True)
-    status=models.BooleanField(default=False)
-    @property
-    def get_name(self):
-        return self.user.first_name+" "+self.user.last_name
-    @property
-    def get_id(self):
-        return self.user.id
-    def __str__(self):
-        return self.user.first_name
-
-class Paramedical(models.Model):
-    user=models.OneToOneField(User,on_delete=models.CASCADE)
-    profile_pic= models.ImageField(upload_to='profile_pic/ParamedicalProfilePic/',null=True,blank=True)
-    address = models.CharField(max_length=40)
-    date_of_birth = models.CharField(max_length=20)
-    gender = models.CharField(max_length=10)
-    mobile = models.CharField(max_length=20,null=True)
-    status=models.BooleanField(default=False)
-    @property
-    def get_name(self):
-        return self.user.first_name+" "+self.user.last_name
-    @property
-    def get_id(self):
-        return self.user.id
-    def __str__(self):
-        return self.user.first_name
-
 
 
 class Patient(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     profile_pic= models.ImageField(upload_to='profile_pic/PatientProfilePic/',null=True,blank=True)
     address = models.CharField(max_length=40)
-    date_of_birth = models.CharField(max_length=20, default="01/01/2000")
-    gender = models.CharField(max_length=10, default="male")
     mobile = models.CharField(max_length=20,null=False)
     symptoms = models.CharField(max_length=100,null=False)
     assignedDoctorId = models.PositiveIntegerField(null=True)
@@ -140,4 +77,6 @@ class PatientDischargeDetails(models.Model):
     total=models.PositiveIntegerField(null=False)
 
 
-
+#Developed By : sumit kumar
+#facebook : fb.com/sumit.luv
+#Youtube :youtube.com/lazycoders

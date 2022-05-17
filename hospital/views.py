@@ -201,6 +201,7 @@ def admin_dashboard_view(request):
 
 
 # this view for sidebar click on admin page
+#--------------for managing doctors by admin--------------#
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
 def admin_doctor_view(request):
@@ -314,113 +315,120 @@ def admin_view_doctor_specialisation_view(request):
     doctors=models.Doctor.objects.all().filter(status=True)
     return render(request,'hospital/admin_view_doctor_specialisation.html',{'doctors':doctors})
 
-###############################
 
 
-@login_required(login_url='adminlogin')
-@user_passes_test(is_admin)
-def admin_doctor_view(request):
-    return render(request,'hospital/admin_doctor.html')
+#--------------for managing nurses by admin--------------#
 
 
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
-def admin_view_doctor_view(request):
-    doctors=models.Doctor.objects.all().filter(status=True)
-    return render(request,'hospital/admin_view_doctor.html',{'doctors':doctors})
+def admin_nurse_view(request):
+    return render(request,'hospital/admin_nurse.html')
 
 
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
-def delete_doctor_from_hospital_view(request,pk):
-    doctor=models.Doctor.objects.get(id=pk)
-    user=models.User.objects.get(id=doctor.user_id)
+def admin_view_nurse_view(request):
+    nurses=models.Nurse.objects.all().filter(status=True)
+    return render(request,'hospital/admin_view_nurse.html',{'nurses':nurses})
+
+
+
+@login_required(login_url='adminlogin')
+@user_passes_test(is_admin)
+def delete_nurse_from_hospital_view(request,pk):
+    nurse=models.Nurse.objects.get(id=pk)
+    user=models.User.objects.get(id=nurse.user_id)
     user.delete()
-    doctor.delete()
-    return redirect('admin-view-doctor')
+    nurse.delete()
+    return redirect('admin-view-nurse')
 
 
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
-def update_doctor_view(request,pk):
-    doctor=models.Doctor.objects.get(id=pk)
-    user=models.User.objects.get(id=doctor.user_id)
+def update_nurse_view(request,pk):
+    nurse=models.nurse.objects.get(id=pk)
+    user=models.User.objects.get(id=nurse.user_id)
 
-    userForm=forms.DoctorUserForm(instance=user)
-    doctorForm=forms.DoctorForm(request.FILES,instance=doctor)
-    mydict={'userForm':userForm,'doctorForm':doctorForm}
+    userForm=forms.NurseUserForm(instance=user)
+    nurseForm=forms.NurseForm(request.FILES,instance=nurse)
+    mydict={'userForm':userForm,'nurseForm':nurseForm}
     if request.method=='POST':
-        userForm=forms.DoctorUserForm(request.POST,instance=user)
-        doctorForm=forms.DoctorForm(request.POST,request.FILES,instance=doctor)
-        if userForm.is_valid() and doctorForm.is_valid():
+        userForm=forms.NurseUserForm(request.POST,instance=user)
+        nurseForm=forms.NurseForm(request.POST,request.FILES,instance=nurse)
+        if userForm.is_valid() and nurseForm.is_valid():
             user=userForm.save()
             user.set_password(user.password)
             user.save()
-            doctor=doctorForm.save(commit=False)
-            doctor.status=True
-            doctor.save()
-            return redirect('admin-view-doctor')
-    return render(request,'hospital/admin_update_doctor.html',context=mydict)
+            nurse=nurseForm.save(commit=False)
+            nurse.status=True
+            nurse.save()
+            return redirect('admin-view-nurse')
+    return render(request,'hospital/admin_update_nurse.html',context=mydict)
 
 
 
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
-def admin_add_doctor_view(request):
-    userForm=forms.DoctorUserForm()
-    doctorForm=forms.DoctorForm()
-    mydict={'userForm':userForm,'doctorForm':doctorForm}
+def admin_add_nurse_view(request):
+    userForm=forms.NurseUserForm()
+    nurseForm=forms.NurseForm()
+    mydict={'userForm':userForm,'nurseForm':nurseForm}
     if request.method=='POST':
-        userForm=forms.DoctorUserForm(request.POST)
-        doctorForm=forms.DoctorForm(request.POST, request.FILES)
-        if userForm.is_valid() and doctorForm.is_valid():
+        userForm=forms.NurseUserForm(request.POST)
+        nurseForm=forms.NurseForm(request.POST, request.FILES)
+        if userForm.is_valid() and nurseForm.is_valid():
             user=userForm.save()
             user.set_password(user.password)
             user.save()
 
-            doctor=doctorForm.save(commit=False)
-            doctor.user=user
-            doctor.status=True
-            doctor.save()
+            nurse=nurseForm.save(commit=False)
+            nurse.user=user
+            nurse.status=True
+            nurse.save()
 
-            my_doctor_group = Group.objects.get_or_create(name='DOCTOR')
-            my_doctor_group[0].user_set.add(user)
+            my_nurse_group = Group.objects.get_or_create(name='nurse')
+            my_nurse_group[0].user_set.add(user)
 
-        return HttpResponseRedirect('admin-view-doctor')
-    return render(request,'hospital/admin_add_doctor.html',context=mydict)
+        return HttpResponseRedirect('admin-view-nurse')
+    return render(request,'hospital/admin_add_nurse.html',context=mydict)
 
 
 
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
-def admin_approve_doctor_view(request):
+def admin_approve_nurse_view(request):
     #those whose approval are needed
-    doctors=models.Doctor.objects.all().filter(status=False)
-    return render(request,'hospital/admin_approve_doctor.html',{'doctors':doctors})
+    nurses=models.Nurse.objects.all().filter(status=False)
+    return render(request,'hospital/admin_approve_nurse.html',{'nurses':nurses})
 
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
-def approve_doctor_view(request,pk):
-    doctor=models.Doctor.objects.get(id=pk)
-    doctor.status=True
-    doctor.save()
-    return redirect(reverse('admin-approve-doctor'))
+def approve_nurse_view(request,pk):
+    nurse=models.Nurse.objects.get(id=pk)
+    nurse.status=True
+    nurse.save()
+    return redirect(reverse('admin-approve-nurse'))
 
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
-def reject_doctor_view(request,pk):
-    doctor=models.Doctor.objects.get(id=pk)
-    user=models.User.objects.get(id=doctor.user_id)
+def reject_nurse_view(request,pk):
+    nurse=models.Nurse.objects.get(id=pk)
+    user=models.User.objects.get(id=nurse.user_id)
     user.delete()
-    doctor.delete()
-    return redirect('admin-approve-doctor')
+    nurse.delete()
+    return redirect('admin-approve-nurse')
+
+
+
+#--------------for managing patients by admin--------------#
 
 
 
@@ -590,7 +598,7 @@ def discharge_patient_view(request,pk):
 
 
 
-#--------------for discharge patient bill (pdf) download and printing
+#--------------for discharge patient bill (pdf) download and printing--------------#
 import io
 from xhtml2pdf import pisa
 from django.template.loader import get_template

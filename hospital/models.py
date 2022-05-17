@@ -47,6 +47,25 @@ class Patient(models.Model):
         return self.user.first_name+" ("+self.symptoms+")"
 
 
+class Nurse(models.Model):
+    user=models.OneToOneField(User,on_delete=models.CASCADE)
+    profile_pic= models.ImageField(upload_to='profile_pic/NurseProfilePic/',null=True,blank=True)
+    address = models.CharField(max_length=40)
+    mobile = models.CharField(max_length=20,null=False)
+    symptoms = models.CharField(max_length=100,null=False)
+    assignedDoctorId = models.PositiveIntegerField(null=True)
+    admitDate=models.DateField(auto_now=True)
+    status=models.BooleanField(default=False)
+    @property
+    def get_name(self):
+        return self.user.first_name+" "+self.user.last_name
+    @property
+    def get_id(self):
+        return self.user.id
+    def __str__(self):
+        return self.user.first_name
+
+
 class Appointment(models.Model):
     patientId=models.PositiveIntegerField(null=True)
     doctorId=models.PositiveIntegerField(null=True)

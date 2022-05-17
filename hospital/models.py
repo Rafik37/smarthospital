@@ -20,8 +20,13 @@ class Doctor(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     profile_pic= models.ImageField(upload_to='profile_pic/DoctorProfilePic/',null=True,blank=True)
     address = models.CharField(max_length=40)
+<<<<<<< HEAD
     date_of_birth = models.CharField(max_length=20)
     gender = models.CharField(max_length=10,choices=gender,default='Male')
+=======
+    date_of_birth = models.CharField(max_length=20, default="01/01/2000")
+    gender = models.CharField(max_length=10, default="male")
+>>>>>>> eddba34bd41b9c83f62b3808f3758b021d28656e
     mobile = models.CharField(max_length=20,null=True)
     department= models.CharField(max_length=50,choices=departments,default='Cardiologist')
     status=models.BooleanField(default=False)
@@ -38,8 +43,8 @@ class Nurse(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     profile_pic= models.ImageField(upload_to='profile_pic/NurseProfilePic/',null=True,blank=True)
     address = models.CharField(max_length=40)
-    date_of_birth = models.CharField(max_length=20)
-    gender = models.CharField(max_length=10)
+    date_of_birth = models.CharField(max_length=20, default="01/01/2000")
+    gender = models.CharField(max_length=10, default="male")
     mobile = models.CharField(max_length=20,null=True)
     status=models.BooleanField(default=False)
     @property
@@ -57,8 +62,8 @@ class Patient(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     profile_pic= models.ImageField(upload_to='profile_pic/PatientProfilePic/',null=True,blank=True)
     address = models.CharField(max_length=40)
-    date_of_birth = models.CharField(max_length=20)
-    gender = models.CharField(max_length=10)
+    date_of_birth = models.CharField(max_length=20, default="01/01/2000")
+    gender = models.CharField(max_length=10, default="male")
     mobile = models.CharField(max_length=20,null=False)
     symptoms = models.CharField(max_length=100,null=False)
     assignedDoctorId = models.PositiveIntegerField(null=True)

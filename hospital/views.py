@@ -29,6 +29,11 @@ def doctorclick_view(request):
         return HttpResponseRedirect('afterlogin')
     return render(request,'hospital/doctorclick.html')
 
+def nurseclick_view(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect('afterlogin')
+    return render(request,'hospital/nurseclick.html')
+
 
 #for showing signup/login button for nurse(by sumit)
 def doctorclick_view(request):

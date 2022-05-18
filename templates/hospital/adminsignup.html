@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>LazyCoder || sumit</title>
+  <title>Admin Sign Up</title>
   <style type="text/css">
     body {
       color: #aa082e;
@@ -21,7 +21,7 @@
     .note {
       text-align: center;
       height: 80px;
-      background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+      background: -webkit-linear-gradient(left, #06adb0, #028383);
       color: #fff;
       font-weight: bold;
       line-height: 80px;
@@ -43,7 +43,7 @@
       padding: 1%;
       width: 20%;
       cursor: pointer;
-      background: #0062cc;
+      background: #028383;
       color: #fff;
     }
   </style>
@@ -65,6 +65,7 @@
   <form method="post">
     {% csrf_token %}
     <div class="container register-form">
+      <br><br><br>
       <div class="form">
         <div class="note">
           <p>Add New Admin To Hospital</p>
@@ -98,11 +99,8 @@
     </div>
 
   </form>
-  <!--
-  developed By : sumit kumar
-  facebook : fb.com/sumit.luv
-  youtube : youtube.com/lazycoders
-  -->
+  <br><br><br>
+
 
   {% include "hospital/footer.html" %}
 </body>

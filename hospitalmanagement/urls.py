@@ -58,6 +58,15 @@ urlpatterns = [
     path('reject-doctor/<int:pk>', views.reject_doctor_view,name='reject-doctor'),
     path('admin-view-doctor-specialisation',views.admin_view_doctor_specialisation_view,name='admin-view-doctor-specialisation'),
 
+    path('admin-nurse', views.admin_nurse_view,name='admin-nurse'),
+    path('admin-view-nurse', views.admin_view_nurse_view,name='admin-view-nurse'),
+    path('delete-nurse-from-hospital/<int:pk>', views.delete_nurse_from_hospital_view,name='delete-nurse-from-hospital'),
+    path('update-nurse/<int:pk>', views.update_nurse_view,name='update-nurse'),
+    path('admin-add-nurse', views.admin_add_nurse_view,name='admin-add-nurse'),
+    path('admin-approve-nurse', views.admin_approve_nurse_view,name='admin-approve-nurse'),
+    path('approve-nurse/<int:pk>', views.approve_nurse_view,name='approve-nurse'),
+    path('reject-nurse/<int:pk>', views.reject_nurse_view,name='reject-nurse'),
+
 
     path('admin-patient', views.admin_patient_view,name='admin-patient'),
     path('admin-view-patient', views.admin_view_patient_view,name='admin-view-patient'),
@@ -94,6 +103,21 @@ urlpatterns +=[
     path('doctor-view-appointment', views.doctor_view_appointment_view,name='doctor-view-appointment'),
     path('doctor-delete-appointment',views.doctor_delete_appointment_view,name='doctor-delete-appointment'),
     path('delete-appointment/<int:pk>', views.delete_appointment_view,name='delete-appointment'),
+]
+
+#---------FOR Nurse RELATED URLS-------------------------------------
+urlpatterns +=[
+    path('nurse-dashboard', views.nurse_dashboard_view,name='nurse-dashboard'),
+    path('search', views.search_view,name='search'),
+
+    path('nurse-patient', views.nurse_patient_view,name='nurse-patient'),
+    path('nurse-view-patient', views.nurse_view_patient_view,name='nurse-view-patient'),
+    #path('nurse-view-discharge-patient',views.nurse_view_discharge_patient_view,name='nurse-view-discharge-patient'),
+
+    #path('nurse-appointment', views.nurse_appointment_view,name='nurse-appointment'),
+    #path('nurse-view-appointment', views.nurse_view_appointment_view,name='nurse-view-appointment'),
+    #path('nurse-delete-appointment',views.nurse_delete_appointment_view,name='nurse-delete-appointment'),
+    #path('delete-appointment/<int:pk>', views.delete_appointment_view,name='delete-appointment'),
 ]
 
 

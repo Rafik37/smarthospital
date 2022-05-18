@@ -1,5 +1,5 @@
 
-# Hospital Management
+# Smart Hospital
 ## Functions
 ### Admin
 - Signup their account. Then Login (No approval Required).

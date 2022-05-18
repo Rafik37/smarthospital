@@ -35,6 +35,7 @@ class Patient(models.Model):
     mobile = models.CharField(max_length=20,null=False)
     symptoms = models.CharField(max_length=100,null=False)
     assignedDoctorId = models.PositiveIntegerField(null=True)
+    #assignedNurseId = models.PositiveIntegerField(null=True)
     admitDate=models.DateField(auto_now=True)
     status=models.BooleanField(default=False)
     @property
@@ -53,7 +54,7 @@ class Nurse(models.Model):
     address = models.CharField(max_length=40)
     mobile = models.CharField(max_length=20,null=False)
     symptoms = models.CharField(max_length=100,null=False)
-    assignedDoctorId = models.PositiveIntegerField(null=True)
+    
     admitDate=models.DateField(auto_now=True)
     status=models.BooleanField(default=False)
     @property

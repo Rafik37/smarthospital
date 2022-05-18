@@ -110,8 +110,8 @@ urlpatterns +=[
     path('nurse-dashboard', views.nurse_dashboard_view,name='nurse-dashboard'),
     path('search', views.search_view,name='search'),
 
-    path('nurse-patient', views.nurse_patient_view,name='nurse-patient'),
-    path('nurse-view-patient', views.nurse_view_patient_view,name='nurse-view-patient'),
+    #path('nurse-patient', views.nurse_patient_view,name='nurse-patient'),
+    #path('nurse-view-patient', views.nurse_view_patient_view,name='nurse-view-patient'),
     #path('nurse-view-discharge-patient',views.nurse_view_discharge_patient_view,name='nurse-view-discharge-patient'),
 
     #path('nurse-appointment', views.nurse_appointment_view,name='nurse-appointment'),

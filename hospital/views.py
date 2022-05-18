@@ -863,6 +863,8 @@ def nurse_dashboard_view(request):
     return render(request,'hospital/nurse_dashboard.html',context=mydict)
 
 
+"""
+
 
 @login_required(login_url='nurselogin')
 @user_passes_test(is_nurse)
@@ -873,13 +875,10 @@ def nurse_patient_view(request):
     return render(request,'hospital/nurse_patient.html',context=mydict)
 
 
-
-
-
 @login_required(login_url='nurselogin')
 @user_passes_test(is_nurse)
 def nurse_view_patient_view(request):
-    #patients=models.Patient.objects.all().filter(status=True,assignedNurseId=request.user.id)
+    patients=models.Patient.objects.all().filter(status=True,assignedNurseId=request.user.id)
     nurse=models.Nurse.objects.get(user_id=request.user.id) #for profile picture of nurse in sidebar
     return render(request,'hospital/nurse_view_patient.html',{'patients':patients,'nurse':nurse})
 
@@ -890,18 +889,17 @@ def search_view(request):
     nurse=models.Nurse.objects.get(user_id=request.user.id) #for profile picture of nurse in sidebar
     # whatever user write in search box we get in query
     query = request.GET['query']
-    #patients=models.Patient.objects.all().filter(status=True,assignedNurseId=request.user.id).filter(Q(symptoms__icontains=query)|Q(user__first_name__icontains=query))
+    patients=models.Patient.objects.all().filter(status=True,assignedNurseId=request.user.id).filter(Q(symptoms__icontains=query)|Q(user__first_name__icontains=query))
     return render(request,'hospital/nurse_view_patient.html',{'patients':patients,'nurse':nurse})
 
 
-""""
 @login_required(login_url='nurselogin')
 @user_passes_test(is_nurse)
 def nurse_view_discharge_patient_view(request):
     dischargedpatients=models.PatientDischargeDetails.objects.all().distinct().filter(assignedNurseName=request.user.first_name)
     nurse=models.Nurse.objects.get(user_id=request.user.id) #for profile picture of nurse in sidebar
     return render(request,'hospital/nurse_view_discharge_patient.html',{'dischargedpatients':dischargedpatients,'nurse':nurse})
-"""
+
 
 
 @login_required(login_url='nurselogin')
@@ -955,6 +953,7 @@ def delete_appointment_view(request,pk):
     return render(request,'hospital/nurse_delete_appointment.html',{'appointments':appointments,'nurse':nurse})
 
 
+"""
 
 #---------------------------------------------------------------------------------
 #------------------------ NURSE RELATED VIEWS END ------------------------------

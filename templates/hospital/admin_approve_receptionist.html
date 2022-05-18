@@ -1,4 +1,4 @@
-{% extends 'hospital/nurse_base.html' %}
+{% extends 'hospital/admin_base.html' %}
 {% block content %}
 {%load static%}
 
@@ -6,7 +6,6 @@
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
   <style media="screen">
     a:link {
       text-decoration: none;
@@ -21,38 +20,38 @@
     }
   </style>
 </head>
-
 <div class="container">
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <h6 class="panel-title">Your Discharged Patient List</h6>
+      <h6 class="panel-title">Receptionists &nbsp Applied For Registration</h6>
     </div>
     <table class="table table-hover" id="dev-table">
       <thead>
         <tr>
           <th>Name</th>
-
-          <th>Admit Date</th>
-          <th>Release Date</th>
-          <th>Symptoms</th>
+          <th>Profile Picture</th>
           <th>Mobile</th>
           <th>Address</th>
-
+          <th>Department</th>
+          <th>Approve</th>
+          <th>Reject</th>
         </tr>
       </thead>
-      {% for p in dischargedpatients %}
+      {% for d in receptionists %}
       <tr>
-        <td> {{p.patientName}}</td>
-        <td>{{p.admitDate}}</td>
-        <td>{{p.releaseDate}}</td>
-        <td>{{p.symptoms}}</td>
-        <td>{{p.mobile}}</td>
-        <td>{{p.address}}</td>
+        <td> {{d.get_name}}</td>
+        <td> <img src="{% static d.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
+        <td>{{d.mobile}}</td>
+        <td>{{d.address}}</td>
+        <td>{{d.department}}</td>
+        <td><a class="btn btn-primary btn-xs" href="{% url 'approve-receptionist' d.id  %}"><span class="glyphicon glyphicon-ok"></span></a></td>
+        <td><a class="btn btn-danger btn-xs" href="{% url 'reject-receptionist' d.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
       </tr>
       {% endfor %}
     </table>
   </div>
-</div>
 
+
+</div>
 
 {% endblock content %}

@@ -1,14 +1,3 @@
-"""
-
-Developed By : sumit kumar
-facebook : fb.com/sumit.luv
-Youtube :youtube.com/lazycoders
-
-
-"""
-
-
-
 
 from django.contrib import admin
 from django.urls import path
@@ -29,16 +18,19 @@ urlpatterns = [
     path('adminclick', views.adminclick_view),
     path('doctorclick', views.doctorclick_view),
     path('nurseclick', views.nurseclick_view),
+    path('receptionistclick', views.receptionistclick_view),
     path('patientclick', views.patientclick_view),
 
     path('adminsignup', views.admin_signup_view),
     path('doctorsignup', views.doctor_signup_view,name='doctorsignup'),
     path('patientsignup', views.patient_signup_view),
+    path('receptionistsignup', views.receptionist_signup_view),
     path('nursesignup', views.nurse_signup_view),
     
     path('adminlogin', LoginView.as_view(template_name='hospital/adminlogin.html')),
     path('doctorlogin', LoginView.as_view(template_name='hospital/doctorlogin.html')),
     path('nurselogin', LoginView.as_view(template_name='hospital/nurselogin.html')),
+    path('receptionistlogin', LoginView.as_view(template_name='hospital/receptionistlogin.html')),
     path('patientlogin', LoginView.as_view(template_name='hospital/patientlogin.html')),
 
 
@@ -66,6 +58,15 @@ urlpatterns = [
     path('admin-approve-nurse', views.admin_approve_nurse_view,name='admin-approve-nurse'),
     path('approve-nurse/<int:pk>', views.approve_nurse_view,name='approve-nurse'),
     path('reject-nurse/<int:pk>', views.reject_nurse_view,name='reject-nurse'),
+
+    path('admin-receptionist', views.admin_receptionist_view,name='admin-receptionist'),
+    path('admin-view-receptionist', views.admin_view_receptionist_view,name='admin-view-receptionist'),
+    path('delete-receptionist-from-hospital/<int:pk>', views.delete_receptionist_from_hospital_view,name='delete-receptionist-from-hospital'),
+    path('update-receptionist/<int:pk>', views.update_receptionist_view,name='update-receptionist'),
+    path('admin-add-receptionist', views.admin_add_receptionist_view,name='admin-add-receptionist'),
+    path('admin-approve-receptionist', views.admin_approve_receptionist_view,name='admin-approve-receptionist'),
+    path('approve-receptionist/<int:pk>', views.approve_receptionist_view,name='approve-receptionist'),
+    path('reject-receptionist/<int:pk>', views.reject_receptionist_view,name='reject-receptionist'),
 
 
     path('admin-patient', views.admin_patient_view,name='admin-patient'),
@@ -120,6 +121,21 @@ urlpatterns +=[
     #path('delete-appointment/<int:pk>', views.delete_appointment_view,name='delete-appointment'),
 ]
 
+#---------FOR Receptionist RELATED URLS-------------------------------------
+urlpatterns +=[
+    path('receptionist-dashboard', views.receptionist_dashboard_view,name='receptionist-dashboard'),
+    path('search', views.search_view,name='search'),
+
+    #path('receptionist-patient', views.receptionist_patient_view,name='receptionist-patient'),
+    #path('receptionist-view-patient', views.receptionist_view_patient_view,name='receptionist-view-patient'),
+    #path('receptionist-view-discharge-patient',views.receptionist_view_discharge_patient_view,name='receptionist-view-discharge-patient'),
+
+    #path('receptionist-appointment', views.receptionist_appointment_view,name='receptionist-appointment'),
+    #path('receptionist-view-appointment', views.receptionist_view_appointment_view,name='receptionist-view-appointment'),
+    #path('receptionist-delete-appointment',views.receptionist_delete_appointment_view,name='receptionist-delete-appointment'),
+    #path('delete-appointment/<int:pk>', views.delete_appointment_view,name='delete-appointment'),
+]
+
 
 
 
@@ -136,6 +152,3 @@ urlpatterns +=[
 
 ]
 
-#Developed By : sumit kumar
-#facebook : fb.com/sumit.luv
-#Youtube :youtube.com/lazycoders

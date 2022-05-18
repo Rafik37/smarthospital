@@ -63,6 +63,34 @@
       </table>
     </div>
 
+    <div class="panel panel-primary col-md-5" style="margin-left:2%;">
+      <div class="panel-heading" style="text-align:center;">
+        <h6 class="panel-title">Recent Receptionists</h6>
+      </div>
+      <table class="table table-hover" id="dev-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>Status</th>
+
+          </tr>
+        </thead>
+        {% for d in receptionists %}
+        <tr>
+          <td> {{d.get_name}}</td>
+          <td>{{d.mobile}}</td>
+          {%if d.status%}
+          <td> <span class="label label-primary">Permanent</span></td>
+          {% else %}
+          <td> <span class="label label-success">On Hold</span></td>
+          {% endif %}
+
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+
     <div class="panel panel-primary col-md-5" style="margin-left:5%;">
       <div class="panel-heading" style="text-align:center;">
         <h6 class="panel-title">Recent Patient</h6>

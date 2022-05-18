@@ -59,6 +59,18 @@ class NurseForm(forms.ModelForm):
         model=models.Nurse
         fields=['address','mobile','status','profile_pic']
 
+class ReceptionistUserForm(forms.ModelForm):
+    class Meta:
+        model=User
+        fields=['first_name','last_name','username','password']
+        widgets = {
+        'password': forms.PasswordInput()
+        }
+class ReceptionistForm(forms.ModelForm):
+    class Meta:
+        model=models.Receptionist
+        fields=['address','mobile','status','profile_pic']
+
 
 
 class AppointmentForm(forms.ModelForm):

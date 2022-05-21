@@ -35,3 +35,18 @@ class RegisterDoctorSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Doctor
         fields = ('address','mobile')
+
+class RegisterPatientSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Patient
+        fields = ('address','mobile')
+
+class RegisterNurseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Nurse
+        fields = ('address','mobile')
+
+class RegisterReceptionistSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Receptionist
+        fields = ('address','mobile')

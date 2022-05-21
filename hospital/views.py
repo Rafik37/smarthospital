@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from django.contrib.auth.models import Group
 from knox.auth import AuthToken, TokenAuthentication
-from .serializers import RegisterSerializer, RegisterDoctorSerializer
+from .serializers import RegisterNurseSerializer, RegisterPatientSerializer, RegisterReceptionistSerializer, RegisterSerializer, RegisterDoctorSerializer
 from django.shortcuts import render,redirect,reverse
 from . import forms,models
 from django.db.models import Sum
@@ -16,50 +16,174 @@ from django.conf import settings
 from django.db.models import Q
 
 ##########-----api-----##########
-def serialize_user(user):
-    return {
-        "username": user.username,
-        "email": user.email,
-        "first_name": user.first_name,
-        "last_name": user.last_name
-    }
-
 @api_view(['POST'])
-def login(request):
+def doctor_login(request):
     serializer = AuthTokenSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
     user = serializer.validated_data['user']
+    doctor = models.Doctor.objects.get(user_id=user.id)
     _, token = AuthToken.objects.create(user)
     return Response({
-        'user_info': serialize_user(user),
-        'token': token
+        'token': token,
+        "username": user.username,
+        "email": user.email,
+        "first_name": user.first_name,
+        "last_name": user.last_name,
+        "address": doctor.address,
+        "mobile": doctor.mobile,
+        "department": doctor.department,
+        "status": doctor.status
     })
         
 
 @api_view(['POST'])
-def register(request):
+def doctor_register(request):
     serializer = RegisterSerializer(data=request.data)
     doctorSerializer = RegisterDoctorSerializer(data=request.data)
     if serializer.is_valid(raise_exception=True) and doctorSerializer.is_valid(raise_exception=True):
         user = serializer.save()
-        doctorSerializer.save(user=user)
+        doctor = doctorSerializer.save(user=user)
         my_doctor_group = Group.objects.get_or_create(name='DOCTOR')
         my_doctor_group[0].user_set.add(user)
         _, token = AuthToken.objects.create(user)
         return Response({
-            "user_info": serialize_user(user),
-            "token": token
+            'token': token,
+            "username": user.username,
+            "email": user.email,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "address": doctor.address,
+            "mobile": doctor.mobile,
+            "department": doctor.department,
+            "status": doctor.status
         })
 
+@api_view(['POST'])
+def patient_login(request):
+    serializer = AuthTokenSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    user = serializer.validated_data['user']
+    patient = models.Patient.objects.get(user_id=user.id)
+    _, token = AuthToken.objects.create(user)
+    return Response({
+        'token': token,
+        "username": user.username,
+        "email": user.email,
+        "first_name": user.first_name,
+        "last_name": user.last_name,
+        "address": patient.address,
+        "mobile": patient.mobile,
+        "department": patient.department,
+        "status": patient.status
+    })
+        
 
-@api_view(['GET'])
-def get_user(request):
-    user = request.user
-    if user.is_authenticated:
+@api_view(['POST'])
+def patient_register(request):
+    serializer = RegisterSerializer(data=request.data)
+    patientSerializer = RegisterPatientSerializer(data=request.data)
+    if serializer.is_valid(raise_exception=True) and patientSerializer.is_valid(raise_exception=True):
+        user = serializer.save()
+        patient = patientSerializer.save(user=user)
+        my_patient_group = Group.objects.get_or_create(name='PATIENT')
+        my_patient_group[0].user_set.add(user)
+        _, token = AuthToken.objects.create(user)
         return Response({
-            'user_data': serialize_user(user)
+            'token': token,
+            "username": user.username,
+            "email": user.email,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "address": patient.address,
+            "mobile": patient.mobile,
+            "department": patient.department,
+            "status": patient.status
         })
-    return Response({})
+
+@api_view(['POST'])
+def nurse_login(request):
+    serializer = AuthTokenSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    user = serializer.validated_data['user']
+    nurse = models.Nurse.objects.get(user_id=user.id)
+    _, token = AuthToken.objects.create(user)
+    return Response({
+        'token': token,
+        "username": user.username,
+        "email": user.email,
+        "first_name": user.first_name,
+        "last_name": user.last_name,
+        "address": nurse.address,
+        "mobile": nurse.mobile,
+        "department": nurse.department,
+        "status": nurse.status
+    })
+        
+
+@api_view(['POST'])
+def nurse_register(request):
+    serializer = RegisterSerializer(data=request.data)
+    nurseSerializer = RegisterNurseSerializer(data=request.data)
+    if serializer.is_valid(raise_exception=True) and nurseSerializer.is_valid(raise_exception=True):
+        user = serializer.save()
+        nurse = nurseSerializer.save(user=user)
+        my_nurse_group = Group.objects.get_or_create(name='NURSE')
+        my_nurse_group[0].user_set.add(user)
+        _, token = AuthToken.objects.create(user)
+        return Response({
+            'token': token,
+            "username": user.username,
+            "email": user.email,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "address": nurse.address,
+            "mobile": nurse.mobile,
+            "department": nurse.department,
+            "status": nurse.status
+        })
+
+@api_view(['POST'])
+def receptionist_login(request):
+    serializer = AuthTokenSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    user = serializer.validated_data['user']
+    receptionist = models.Receptionist.objects.get(user_id=user.id)
+    _, token = AuthToken.objects.create(user)
+    return Response({
+        'token': token,
+        "username": user.username,
+        "email": user.email,
+        "first_name": user.first_name,
+        "last_name": user.last_name,
+        "address": receptionist.address,
+        "mobile": receptionist.mobile,
+        "department": receptionist.department,
+        "status": receptionist.status
+    })
+        
+
+@api_view(['POST'])
+def receptionist_register(request):
+    serializer = RegisterSerializer(data=request.data)
+    receptionistSerializer = RegisterReceptionistSerializer(data=request.data)
+    if serializer.is_valid(raise_exception=True) and receptionistSerializer.is_valid(raise_exception=True):
+        user = serializer.save()
+        receptionist = receptionistSerializer.save(user=user)
+        my_receptionist_group = Group.objects.get_or_create(name='RECEPTIONIST')
+        my_receptionist_group[0].user_set.add(user)
+        _, token = AuthToken.objects.create(user)
+        return Response({
+            'token': token,
+            "username": user.username,
+            "email": user.email,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "address": receptionist.address,
+            "mobile": receptionist.mobile,
+            "department": receptionist.department,
+            "status": receptionist.status
+        })
+
 ##########-----api-----##########
 
 # Create your views here.
@@ -563,7 +687,6 @@ def admin_add_nurse_view(request):
             nurse=nurseForm.save(commit=False)
             nurse.user=user
             nurse.status=True
-            nurse.assignedDoctorId=request.POST.get('assignedDoctorId')
             nurse.save()
 
             my_nurse_group = Group.objects.get_or_create(name='NURSE')
@@ -669,7 +792,6 @@ def admin_add_receptionist_view(request):
             receptionist=receptionistForm.save(commit=False)
             receptionist.user=user
             receptionist.status=True
-            receptionist.assignedDoctorId=request.POST.get('assignedDoctorId')
             receptionist.save()
 
             my_receptionist_group = Group.objects.get_or_create(name='RECEPTIONIST')
@@ -910,26 +1032,27 @@ def reject_appointment_view(request,pk):
 @login_required(login_url='doctorlogin')
 @user_passes_test(is_doctor)
 def doctor_dashboard_view(request):
-    #for three cards
-    patientcount=models.Patient.objects.all().filter(status=True,assignedDoctorId=request.user.id).count()
-    appointmentcount=models.Appointment.objects.all().filter(status=True,doctorId=request.user.id).count()
-    patientdischarged=models.PatientDischargeDetails.objects.all().distinct().filter(assignedDoctorName=request.user.first_name).count()
+    # #for three cards
+    # patientcount=models.Patient.objects.all().filter(status=True,assignedDoctorId=request.user.id).count()
+    # appointmentcount=models.Appointment.objects.all().filter(status=True,doctorId=request.user.id).count()
+    # patientdischarged=models.PatientDischargeDetails.objects.all().distinct().filter(assignedDoctorName=request.user.first_name).count()
 
-    #for  table in doctor dashboard
-    appointments=models.Appointment.objects.all().filter(status=True,doctorId=request.user.id).order_by('-id')
-    patientid=[]
-    for a in appointments:
-        patientid.append(a.patientId)
-    patients=models.Patient.objects.all().filter(status=True,user_id__in=patientid).order_by('-id')
-    appointments=zip(appointments,patients)
-    mydict={
-    'patientcount':patientcount,
-    'appointmentcount':appointmentcount,
-    'patientdischarged':patientdischarged,
-    'appointments':appointments,
-    'doctor':models.Doctor.objects.get(user_id=request.user.id), #for profile picture of doctor in sidebar
-    }
-    return render(request,'hospital/doctor_dashboard.html',context=mydict)
+    # #for  table in doctor dashboard
+    # appointments=models.Appointment.objects.all().filter(status=True,doctorId=request.user.id).order_by('-id')
+    # patientid=[]
+    # for a in appointments:
+    #     patientid.append(a.patientId)
+    # patients=models.Patient.objects.all().filter(status=True,user_id__in=patientid).order_by('-id')
+    # appointments=zip(appointments,patients)
+    # mydict={
+    # 'patientcount':patientcount,
+    # 'appointmentcount':appointmentcount,
+    # 'patientdischarged':patientdischarged,
+    # 'appointments':appointments,
+    # 'doctor':models.Doctor.objects.get(user_id=request.user.id), #for profile picture of doctor in sidebar
+    # }
+    # return render(request,'hospital/doctor_dashboard.html',context=mydict)
+    return render(request,'hospital/doctor_dashboard.html')
 
 
 

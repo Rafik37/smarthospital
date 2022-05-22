@@ -34,7 +34,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 class RegisterDoctorSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Doctor
-        fields = ('address','mobile')
+        fields = ('address','mobile','department')
 
 class RegisterPatientSerializer(serializers.ModelSerializer):
     class Meta:

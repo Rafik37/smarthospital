@@ -1143,26 +1143,48 @@ def receptionist_dashboard_view(request):
     return render(request,'hospital/receptionist_dashboard.html',context=mydict)
 
 
+
+
+
+@login_required(login_url='receptionistlogin')
+@user_passes_test(is_receptionist)
+def receptionist_patient_view(request):
+    return render(request,'hospital/receptionist_patient.html')
+
+@login_required(login_url='receptionistlogin')
+@user_passes_test(is_receptionist)
+def receptionist_add_patient_view(request):
+    userForm=forms.PatientUserForm()
+    patientForm=forms.PatientForm()
+    mydict={'userForm':userForm,'patientForm':patientForm}
+    if request.method=='POST':
+        userForm=forms.PatientUserForm(request.POST)
+        patientForm=forms.PatientForm(request.POST,request.FILES)
+        if userForm.is_valid() and patientForm.is_valid():
+            user=userForm.save()
+            user.set_password(user.password)
+            user.save()
+
+            patient=patientForm.save(commit=False)
+            patient.user=user
+            patient.status=True
+            patient.assignedDoctorId=request.POST.get('assignedDoctorId')
+            patient.save()
+
+            my_patient_group = Group.objects.get_or_create(name='PATIENT')
+            my_patient_group[0].user_set.add(user)
+
+        return HttpResponseRedirect('receptionist-view-patient')
+    return render(request,'hospital/receptionist_add_patient.html',context=mydict)
+
+
+@login_required(login_url='receptionistlogin')
+@user_passes_test(is_receptionist)
+def receptionist_view_patient_view(request):
+    patients=models.Patient.objects.all().filter(status=True)
+    return render(request,'hospital/receptionist_view_patient.html',{'patients':patients})
+
 """
-
-
-@login_required(login_url='nurselogin')
-@user_passes_test(is_nurse)
-def nurse_patient_view(request):
-    mydict={
-    'nurse':models.Nurse.objects.get(user_id=request.user.id), #for profile picture of nurse in sidebar
-    }
-    return render(request,'hospital/nurse_patient.html',context=mydict)
-
-
-@login_required(login_url='nurselogin')
-@user_passes_test(is_nurse)
-def nurse_view_patient_view(request):
-    patients=models.Patient.objects.all().filter(status=True,assignedNurseId=request.user.id)
-    nurse=models.Nurse.objects.get(user_id=request.user.id) #for profile picture of nurse in sidebar
-    return render(request,'hospital/nurse_view_patient.html',{'patients':patients,'nurse':nurse})
-
-
 @login_required(login_url='nurselogin')
 @user_passes_test(is_nurse)
 def search_view(request):

@@ -35,7 +35,7 @@ class Patient(models.Model):
     address = models.CharField(max_length=40)
     mobile = models.CharField(max_length=20,null=False)
     symptoms = models.CharField(max_length=100,null=False)
-    # assignedDoctorId = models.PositiveIntegerField(null=True)
+    assignedDoctorId = models.PositiveIntegerField(null=True)
     admitDate=models.DateField(auto_now=True)
     status=models.PositiveSmallIntegerField(default=0)
     @property
@@ -99,7 +99,7 @@ class Appointment(models.Model):
 class PatientDischargeDetails(models.Model):
     patientId=models.PositiveIntegerField(null=True)
     patientName=models.CharField(max_length=40)
-    # assignedDoctorName=models.CharField(max_length=40)
+    assignedDoctorName=models.CharField(max_length=40)
     address = models.CharField(max_length=40)
     mobile = models.CharField(max_length=20,null=True)
     symptoms = models.CharField(max_length=100,null=True)

@@ -39,7 +39,7 @@ class RegisterDoctorSerializer(serializers.ModelSerializer):
 class RegisterPatientSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Patient
-        fields = ('address','mobile')
+        fields = ('address','mobile','assignedDoctorId')
 
 class RegisterNurseSerializer(serializers.ModelSerializer):
     class Meta:

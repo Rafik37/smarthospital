@@ -180,6 +180,7 @@ def receptionist_register(request):
             "last_name": user.last_name,
             "address": receptionist.address,
             "mobile": receptionist.mobile,
+            "department": receptionist.department,
             "status": receptionist.status
         })
 
@@ -351,7 +352,6 @@ def receptionist_reg(request):
             "last_name": user.last_name,
             "address": receptionist.address,
             "mobile": receptionist.mobile,
-            "department": receptionist.department,
             "status": receptionist.status
         })
 

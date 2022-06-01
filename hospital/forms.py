@@ -69,7 +69,7 @@ class ReceptionistUserForm(forms.ModelForm):
 class ReceptionistForm(forms.ModelForm):
     class Meta:
         model=models.Receptionist
-        fields=['address','mobile','status']
+        fields=['address','mobile','status','profile_pic']
 
 
 

@@ -18,7 +18,7 @@ class AdminSigupForm(forms.ModelForm):
 class DoctorUserForm(forms.ModelForm):
     class Meta:
         model=User
-        fields=['first_name','last_name','username','email','password']
+        fields=['first_name','last_name','username','password']
         widgets = {
         'password': forms.PasswordInput()
         }
@@ -33,7 +33,7 @@ class DoctorForm(forms.ModelForm):
 class PatientUserForm(forms.ModelForm):
     class Meta:
         model=User
-        fields=['first_name','last_name','username','email','password']
+        fields=['first_name','last_name','username','password']
         widgets = {
         'password': forms.PasswordInput()
         }
@@ -44,13 +44,13 @@ class PatientForm(forms.ModelForm):
     assignedDoctorId=forms.ModelChoiceField(queryset=models.Doctor.objects.all().filter(status=True),empty_label="Name and Department", to_field_name="user_id")
     class Meta:
         model=models.Patient
-        fields=['address','mobile','status','symptoms','profile_pic','assignedDoctorId']
+        fields=['address','mobile','status','symptoms','profile_pic']
 
 
 class NurseUserForm(forms.ModelForm):
     class Meta:
         model=User
-        fields=['first_name','last_name','username','email','password']
+        fields=['first_name','last_name','username','password']
         widgets = {
         'password': forms.PasswordInput()
         }
@@ -62,7 +62,7 @@ class NurseForm(forms.ModelForm):
 class ReceptionistUserForm(forms.ModelForm):
     class Meta:
         model=User
-        fields=['first_name','last_name','username','email','password']
+        fields=['first_name','last_name','username','password']
         widgets = {
         'password': forms.PasswordInput()
         }

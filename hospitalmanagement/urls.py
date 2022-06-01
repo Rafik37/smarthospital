@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path
 from hospital import views
 from django.contrib.auth.views import LoginView,LogoutView
 
@@ -8,7 +8,6 @@ from django.contrib.auth.views import LoginView,LogoutView
 #-------------FOR ADMIN RELATED URLS
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('hospital.urls')),
     path('',views.home_view,name=''),
 
 

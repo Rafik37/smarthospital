@@ -126,8 +126,10 @@ urlpatterns +=[
     path('receptionist-dashboard', views.receptionist_dashboard_view,name='receptionist-dashboard'),
     path('search', views.search_view,name='search'),
 
-    #path('receptionist-patient', views.receptionist_patient_view,name='receptionist-patient'),
-    #path('receptionist-view-patient', views.receptionist_view_patient_view,name='receptionist-view-patient'),
+    path('receptionist-patient', views.receptionist_patient_view,name='receptionist-patient'),
+    path('receptionist-view-patient', views.receptionist_view_patient_view,name='receptionist-view-patient'),
+
+    path('receptionist-add-patient', views.receptionist_add_patient_view,name='receptionist-add-patient'),
     #path('receptionist-view-discharge-patient',views.receptionist_view_discharge_patient_view,name='receptionist-view-discharge-patient'),
 
     #path('receptionist-appointment', views.receptionist_appointment_view,name='receptionist-appointment'),

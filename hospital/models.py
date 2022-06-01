@@ -31,7 +31,7 @@ class Doctor(models.Model):
 
 class Patient(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
-    profile_pic= models.ImageField(upload_to='profile_pic/PatientProfilePic/',null=True,blank=True)
+    profile_pic= models.ImageField(upload_to='profile_pic/PatientProfilePic/',null=True,blank=True,default='profile_pic/PatientProfilePic/patient.png')
     address = models.CharField(max_length=40)
     mobile = models.CharField(max_length=20,null=False)
     symptoms = models.CharField(max_length=100,null=False)
@@ -50,7 +50,7 @@ class Patient(models.Model):
 
 class Nurse(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
-    profile_pic= models.ImageField(upload_to='profile_pic/NurseProfilePic/',null=True,blank=True)
+    profile_pic= models.ImageField(upload_to='profile_pic/NurseProfilePic/',null=True,blank=True,default='profile_pic/NurseProfilePic/nurse.png')
     address = models.CharField(max_length=40)
     mobile = models.CharField(max_length=20,null=False)
     symptoms = models.CharField(max_length=100,null=False)
@@ -68,7 +68,7 @@ class Nurse(models.Model):
 
 class Receptionist(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
-    profile_pic= models.ImageField(upload_to='profile_pic/ReceptionnistProfilePic/',null=True,blank=True)
+    profile_pic= models.ImageField(upload_to='profile_pic/ReceptionnistProfilePic/',null=True,blank=True,default='profile_pic/ReceptionistProfilePic/receptionist.png')
     address = models.CharField(max_length=40)
     mobile = models.CharField(max_length=20,null=False)
     symptoms = models.CharField(max_length=100,null=False)

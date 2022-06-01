@@ -14,7 +14,7 @@ class RegisterSerializer(serializers.ModelSerializer):
                 "allow_blank": False,
                 "validators": [
                     validators.UniqueValidator(
-                        User.objects.all(), f"A user with that Email already exists."
+                        User.objects.all(), "A user with that Email already exists."
                     )
                 ],
             },

@@ -18,7 +18,7 @@ class AdminSigupForm(forms.ModelForm):
 class DoctorUserForm(forms.ModelForm):
     class Meta:
         model=User
-        fields=['first_name','last_name','username','password']
+        fields=['first_name','last_name','username','email','password']
         widgets = {
         'password': forms.PasswordInput()
         }
@@ -33,7 +33,7 @@ class DoctorForm(forms.ModelForm):
 class PatientUserForm(forms.ModelForm):
     class Meta:
         model=User
-        fields=['first_name','last_name','username','password']
+        fields=['first_name','last_name','username','email','password']
         widgets = {
         'password': forms.PasswordInput()
         }
@@ -50,7 +50,7 @@ class PatientForm(forms.ModelForm):
 class NurseUserForm(forms.ModelForm):
     class Meta:
         model=User
-        fields=['first_name','last_name','username','password']
+        fields=['first_name','last_name','username','email','password']
         widgets = {
         'password': forms.PasswordInput()
         }
@@ -62,7 +62,7 @@ class NurseForm(forms.ModelForm):
 class ReceptionistUserForm(forms.ModelForm):
     class Meta:
         model=User
-        fields=['first_name','last_name','username','password']
+        fields=['first_name','last_name','username','email','password']
         widgets = {
         'password': forms.PasswordInput()
         }

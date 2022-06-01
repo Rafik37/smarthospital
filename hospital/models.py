@@ -17,7 +17,7 @@ class Doctor(models.Model):
     address = models.CharField(max_length=40,null=True)
     mobile = models.CharField(max_length=20,null=True)
     department= models.CharField(max_length=50,choices=departments,default='Cardiologist')
-    status=models.BooleanField(default=False)
+    status=models.PositiveSmallIntegerField(default=0)
     @property
     def get_name(self):
         return self.user.first_name+" "+self.user.last_name
@@ -37,7 +37,7 @@ class Patient(models.Model):
     symptoms = models.CharField(max_length=100,null=False)
     # assignedDoctorId = models.PositiveIntegerField(null=True)
     admitDate=models.DateField(auto_now=True)
-    status=models.BooleanField(default=False)
+    status=models.PositiveSmallIntegerField(default=0)
     @property
     def get_name(self):
         return self.user.first_name+" "+self.user.last_name
@@ -56,7 +56,7 @@ class Nurse(models.Model):
     symptoms = models.CharField(max_length=100,null=False)
     
     admitDate=models.DateField(auto_now=True)
-    status=models.BooleanField(default=False)
+    status=models.PositiveSmallIntegerField(default=0)
     @property
     def get_name(self):
         return self.user.first_name+" "+self.user.last_name
@@ -74,7 +74,7 @@ class Receptionist(models.Model):
     symptoms = models.CharField(max_length=100,null=False)
     
     admitDate=models.DateField(auto_now=True)
-    status=models.BooleanField(default=False)
+    status=models.PositiveSmallIntegerField(default=0)
     @property
     def get_name(self):
         return self.user.first_name+" "+self.user.last_name
@@ -92,7 +92,7 @@ class Appointment(models.Model):
     doctorName=models.CharField(max_length=40,null=True)
     appointmentDate=models.DateField(auto_now=True)
     description=models.TextField(max_length=500)
-    status=models.BooleanField(default=False)
+    status=models.PositiveSmallIntegerField(default=0)
 
 
 

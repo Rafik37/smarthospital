@@ -43,7 +43,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'hospitalmanagement.urls'
+ROOT_URLCONF = 'smarthospital.urls'
 
 TEMPLATES = [
     {
@@ -61,11 +61,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'hospitalmanagement.wsgi.application'
+WSGI_APPLICATION = 'smarthospital.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
     'default': {

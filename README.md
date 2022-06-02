@@ -1,23 +1,29 @@
 
 # Smart Hospital
 ---
-## screenshots
+## Screenshots 
 ### Homepage
-![homepage snap](https://github.com/sumitkumar1503/hospitalmanagement/blob/master/static/screenshots/homepage.png?raw=true)
+![homepage snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/homepage.png?raw=true)
+### Homepage Cards
+![homepage snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/homepage1.PNG?raw=true)
+### Admin Login
+![admin login](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/adminlogin.PNG?raw=true)
+====================================================================================================================
 ### Admin Dashboard
-![dashboard snap](https://github.com/sumitkumar1503/hospitalmanagement/blob/master/static/screenshots/admin_dashboard.png?raw=true)
-### Invoice
-![invoice snap](https://github.com/sumitkumar1503/hospitalmanagement/blob/master/static/screenshots/invoice.png?raw=true)
+![dashboard admin](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/admin_dashboard.png?raw=true)
+=======
+### Admin Doctor pannel
+![doctor snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/admin_doctor.png?raw=true)
 ### Doctor list
-![doctor snap](https://github.com/sumitkumar1503/hospitalmanagement/blob/master/static/screenshots/admin_doctor.png?raw=true)
+![doctor snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/admin_doctor1.png?raw=true)
 ---
 ## Functions
 ### Admin
-- Signup their account. Then Login (No approval Required).
-- Can register/view/approve/reject/delete doctor (approve those doctor who applied for job in their hospital).
-- Can admit/view/approve/reject/discharge patient (discharge patient when treatment is done).
-- Can Generate/Download Invoice pdf (Generate Invoice according to medicine cost, room charge, doctor charge and other charge).
-- Can view/book/approve Appointment (approve those appointments which is requested by patient).
+- Signup then login.
+- Can add/view/approve/reject/delete doctor.
+- Can add/view/approve/reject/discharge patient.
+- Can Generate/Download Invoice pdf.
+- Can view/book/approve Appointment.
 
 ### Doctor
 - Apply for job in hospital. Then Login (Approval required by hospital admin, Then only doctor can login).

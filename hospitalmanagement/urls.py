@@ -111,15 +111,6 @@ urlpatterns +=[
 urlpatterns +=[
     path('nurse-dashboard', views.nurse_dashboard_view,name='nurse-dashboard'),
     path('search', views.search_view,name='search'),
-
-    #path('nurse-patient', views.nurse_patient_view,name='nurse-patient'),
-    #path('nurse-view-patient', views.nurse_view_patient_view,name='nurse-view-patient'),
-    #path('nurse-view-discharge-patient',views.nurse_view_discharge_patient_view,name='nurse-view-discharge-patient'),
-
-    #path('nurse-appointment', views.nurse_appointment_view,name='nurse-appointment'),
-    #path('nurse-view-appointment', views.nurse_view_appointment_view,name='nurse-view-appointment'),
-    #path('nurse-delete-appointment',views.nurse_delete_appointment_view,name='nurse-delete-appointment'),
-    #path('delete-appointment/<int:pk>', views.delete_appointment_view,name='delete-appointment'),
 ]
 
 #---------FOR Receptionist RELATED URLS-------------------------------------
@@ -131,12 +122,6 @@ urlpatterns +=[
     path('receptionist-view-patient', views.receptionist_view_patient_view,name='receptionist-view-patient'),
 
     path('receptionist-add-patient', views.receptionist_add_patient_view,name='receptionist-add-patient'),
-    #path('receptionist-view-discharge-patient',views.receptionist_view_discharge_patient_view,name='receptionist-view-discharge-patient'),
-
-    #path('receptionist-appointment', views.receptionist_appointment_view,name='receptionist-appointment'),
-    #path('receptionist-view-appointment', views.receptionist_view_appointment_view,name='receptionist-view-appointment'),
-    #path('receptionist-delete-appointment',views.receptionist_delete_appointment_view,name='receptionist-delete-appointment'),
-    #path('delete-appointment/<int:pk>', views.delete_appointment_view,name='delete-appointment'),
 ]
 
 
@@ -144,7 +129,6 @@ urlpatterns +=[
 
 #---------FOR PATIENT RELATED URLS-------------------------------------
 urlpatterns +=[
-
     path('patient-dashboard', views.patient_dashboard_view,name='patient-dashboard'),
     path('patient-appointment', views.patient_appointment_view,name='patient-appointment'),
     path('patient-book-appointment', views.patient_book_appointment_view,name='patient-book-appointment'),

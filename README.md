@@ -8,7 +8,7 @@
 ![homepage snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/homepage1.PNG?raw=true)
 
 ### Admin Login
-![dashboard snap](https://github.com/sumitkumar1503/hospitalmanagement/blob/master/static/screenshots/adminlogin.PNG?raw=true)
+![dashboard snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/adminlogin.PNG?raw=true)
 ### Invoice
 ![invoice snap](https://github.com/sumitkumar1503/hospitalmanagement/blob/master/static/screenshots/invoice.png?raw=true)
 ### Doctor list

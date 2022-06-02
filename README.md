@@ -6,6 +6,8 @@
 ![homepage snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/homepage.png?raw=true)
 ### Homepage Cards
 ![homepage snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/homepage1.PNG?raw=true)
+### Admin Login
+![admin login](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/adminlogin.PNG?raw=true)
 
 <<<<<<< HEAD
 ### Admin Dashboard

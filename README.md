@@ -1,24 +1,24 @@
 
 # Smart Hospital
 ---
-## Screenshots 
-### Homepage
+## Captures d'écran
+### Page d'accueil
 ![homepage snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/homepage.png?raw=true)
-### Homepage Cards
+### Page d'accueil Cards
 ![homepage snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/homepage1.PNG?raw=true)
 ### Admin Login
 ![admin login](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/admin.PNG?raw=true)
 ![admin login](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/adminlogin.PNG?raw=true)
 ====================================================================================================================
-### Admin Dashboard
+### Tableau de bord de l'administrateur
 ![dashboard admin](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/admin_dashboard.png?raw=true)
 =======
-### Admin Doctor pannel
+### Interface de gestion des médecins pour l'admin
 ![doctor snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/admin_doctor.png?raw=true)
-### Doctor list
+### Liste des médecins
 ![doctor snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/admin_doctor1.png?raw=true)
 ---
-## Functions
+## Fonctions
 ### Administrateur
 - S'inscrire puis se connecter.
 - Peut ajouter/voir/approuver/rejeter/supprimer un médecin.

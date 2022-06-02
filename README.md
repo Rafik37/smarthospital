@@ -19,45 +19,26 @@
 ![doctor snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/admin_doctor1.png?raw=true)
 ---
 ## Functions
-### Admin
-- Signup then login.
-- Can add/view/approve/reject/delete doctor.
-- Can add/view/approve/reject/discharge patient.
-- Can Generate/Download Invoice pdf.
-- Can view/book/approve Appointment.
+### Administrateur
+- S'inscrire puis se connecter.
+- Peut ajouter/voir/approuver/rejeter/supprimer un médecin.
+- Peut ajouter/visualiser/approuver/rejeter/effacer un patient.
+- Peut générer/télécharger une facture en pdf.
+- Peut afficher/réserver/approuver un rendez-vous.
 
-### Doctor
-- Signup (Apply for job in our smart hospital) Then Login (Approval required by smart hospital admin).
-- Can only view their patient details (symptoms, name, mobile ) assigned to that doctor by admin.
-- Can view their discharged(by admin) patient list.
-- Can view their Appointments, booked by admin.
-- Can delete their Appointment, when doctor attended their appointment.
+### Médecin
+- Inscrivez-vous, puis connectez-vous ( autorisation nécessaire de l'administrateur de l'hôpital ).
+- Peut seulement voir les détails de leurs patients (symptômes, nom, portable) assignés à ce médecin par l'administrateur.
+- Peut voir la liste de ses patients libérés (par l'administrateur).
+- Peut voir ses rendez-vous, réservés par l'administrateur.
+- Peut supprimer leur rendez-vous, lorsque le médecin a assisté à leur rendez-vous.
 
 ### Patient
-- Create account for admit in hospital. Then Login (Approval required by hospital admin, Then only patient can login).
-- Can view assigned doctor's details like ( specialization, mobile, address).
-- Can view their booked appointment status (pending/confirmed by admin).
-- Can book appointments.(approval required by admin)
-- Can view/download Invoice pdf (Only when that patient is discharged by admin).
+- Créez un compte pour être admis à l'hôpital. Ensuite, connectez-vous ( autorisation nécessaire par l'administrateur de l'hôpital, puis seul le patient peut se connecter).
+- Peut voir les détails du médecin assigné comme (spécialisation, mobile, adresse).
+- Peut voir le statut de leur rendez-vous réservé (en attente/confirmé par l'administrateur).
+- Peut prendre des rendez-vous (approbation requise par l'administrateur).
+- Peut voir/télécharger le pdf de la facture (seulement quand le patient est déchargé par l'administrateur).
 
 ---
 
-## HOW TO RUN THIS PROJECT
-- Install Python
-- Execute Following Commands :
-```
-pip install django==3.0.5
-pip install django-widget-tweaks
-pip install xhtml2pdf
-pip install djangorestframework
-```
-- Run following Commands :
-```
-py manage.py makemigrations
-py manage.py migrate
-py manage.py runserver
-```
-- Now enter the following URL
-```
-http://127.0.0.1:8000/
-```

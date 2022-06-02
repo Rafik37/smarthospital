@@ -3,20 +3,20 @@
 ---
 ## Captures d'écran
 ### Page d'accueil
-![homepage snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/homepage.png?raw=true)
+![homepage snap](https://github.com/Rafik37/smarthospital/blob/master/static/screenshots/homepage.png?raw=true)
 ### Page d'accueil Cards
-![homepage snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/homepage1.PNG?raw=true)
+![homepage snap](https://github.com/Rafik37/smarthospital/blob/master/static/screenshots/homepage1.PNG?raw=true)
 ### Admin Login
-![admin login](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/admin.PNG?raw=true)
-![admin login](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/adminlogin.PNG?raw=true)
+![admin login](https://github.com/Rafik37/smarthospital/blob/master/static/screenshots/admin.PNG?raw=true)
+![admin login](https://github.com/Rafik37/smarthospital/blob/master/static/screenshots/adminlogin.PNG?raw=true)
 ====================================================================================================================
 ### Tableau de bord de l'administrateur
-![dashboard admin](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/admin_dashboard.png?raw=true)
+![dashboard admin](https://github.com/Rafik37/smarthospital/blob/master/static/screenshots/admin_dashboard.png?raw=true)
 =======
 ### Interface de gestion des médecins pour l'admin
-![doctor snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/admin_doctor.png?raw=true)
+![doctor snap](https://github.com/Rafik37/smarthospital/blob/master/static/screenshots/admin_doctor.png?raw=true)
 ### Liste des médecins
-![doctor snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/admin_doctor1.png?raw=true)
+![doctor snap](https://github.com/Rafik37/smarthospital/blob/master/static/screenshots/admin_doctor1.png?raw=true)
 ---
 ## Fonctions
 ### Administrateur

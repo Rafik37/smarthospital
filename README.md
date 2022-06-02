@@ -12,8 +12,10 @@
 ### Admin Dashboard
 ![dashboard admin](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/admin_dashboard.png?raw=true)
 =======
+### Admin Doctor pannel
+![doctor snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/admin_doctor.png?raw=true)
 ### Doctor list
-![doctor snap](https://github.com/sumitkumar1503/hospitalmanagement/blob/master/static/screenshots/admin_doctor.png?raw=true)
+![doctor snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/admin_doctor1.png?raw=true)
 ---
 ## Functions
 ### Admin

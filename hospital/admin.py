@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import Doctor,Patient,Nurse,Receptionist,Appointment,PatientDischargeDetails
-# Register your models here.
 class DoctorAdmin(admin.ModelAdmin):
     pass
 admin.site.register(Doctor, DoctorAdmin)

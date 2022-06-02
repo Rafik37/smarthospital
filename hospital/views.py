@@ -1175,129 +1175,15 @@ def delete_appointment_view(request,pk):
 @login_required(login_url='nurselogin')
 @user_passes_test(is_nurse)
 def nurse_dashboard_view(request):
-    
-    #for three cards
-    """
-    patientcount=models.Patient.objects.all().filter(status=True,assignedNurseId=request.user.id).count()
-    appointmentcount=models.Appointment.objects.all().filter(status=True,doctorId=request.user.id).count()
-    patientdischarged=models.PatientDischargeDetails.objects.all().distinct().filter(assignedNurseName=request.user.first_name).count()
-
-    #for  table in nurse dashboard
-    appointments=models.Appointment.objects.all().filter(status=True,nurseId=request.user.id).order_by('-id')
-    patientid=[]
-    for a in appointments:
-        patientid.append(a.patientId)
-    
-    patients=models.Patient.objects.all().filter(status=True,user_id__in=patientid).order_by('-id')
-    appointments=zip(appointments,patients)
-    """
     mydict={
-    #'patientcount':patientcount,
-    #'appointmentcount':appointmentcount,
-    #'patientdischarged':patientdischarged,
-    #'appointments':appointments,
     'nurse':models.Nurse.objects.get(user_id=request.user.id), #for profile picture of nurse in sidebar
     }
     
     return render(request,'hospital/nurse_dashboard.html',context=mydict)
 
-
-"""
-
-
-@login_required(login_url='nurselogin')
-@user_passes_test(is_nurse)
-def nurse_patient_view(request):
-    mydict={
-    'nurse':models.Nurse.objects.get(user_id=request.user.id), #for profile picture of nurse in sidebar
-    }
-    return render(request,'hospital/nurse_patient.html',context=mydict)
-
-
-@login_required(login_url='nurselogin')
-@user_passes_test(is_nurse)
-def nurse_view_patient_view(request):
-    patients=models.Patient.objects.all().filter(status=True,assignedNurseId=request.user.id)
-    nurse=models.Nurse.objects.get(user_id=request.user.id) #for profile picture of nurse in sidebar
-    return render(request,'hospital/nurse_view_patient.html',{'patients':patients,'nurse':nurse})
-
-
-@login_required(login_url='nurselogin')
-@user_passes_test(is_nurse)
-def search_view(request):
-    nurse=models.Nurse.objects.get(user_id=request.user.id) #for profile picture of nurse in sidebar
-    # whatever user write in search box we get in query
-    query = request.GET['query']
-    patients=models.Patient.objects.all().filter(status=True,assignedNurseId=request.user.id).filter(Q(symptoms__icontains=query)|Q(user__first_name__icontains=query))
-    return render(request,'hospital/nurse_view_patient.html',{'patients':patients,'nurse':nurse})
-
-
-@login_required(login_url='nurselogin')
-@user_passes_test(is_nurse)
-def nurse_view_discharge_patient_view(request):
-    dischargedpatients=models.PatientDischargeDetails.objects.all().distinct().filter(assignedNurseName=request.user.first_name)
-    nurse=models.Nurse.objects.get(user_id=request.user.id) #for profile picture of nurse in sidebar
-    return render(request,'hospital/nurse_view_discharge_patient.html',{'dischargedpatients':dischargedpatients,'nurse':nurse})
-
-
-
-@login_required(login_url='nurselogin')
-@user_passes_test(is_nurse)
-def nurse_appointment_view(request):
-    nurse=models.Nurse.objects.get(user_id=request.user.id) #for profile picture of nurse in sidebar
-    return render(request,'hospital/nurse_appointment.html',{'nurse':nurse})
-
-
-
-@login_required(login_url='nurselogin')
-@user_passes_test(is_nurse)
-def nurse_view_appointment_view(request):
-    nurse=models.Nurse.objects.get(user_id=request.user.id) #for profile picture of nurse in sidebar
-    appointments=models.Appointment.objects.all().filter(status=True,nurseId=request.user.id)
-    patientid=[]
-    for a in appointments:
-        patientid.append(a.patientId)
-    patients=models.Patient.objects.all().filter(status=True,user_id__in=patientid)
-    appointments=zip(appointments,patients)
-    return render(request,'hospital/nurse_view_appointment.html',{'appointments':appointments,'nurse':nurse})
-
-
-
-@login_required(login_url='nurselogin')
-@user_passes_test(is_nurse)
-def nurse_delete_appointment_view(request):
-    nurse=models.Nurse.objects.get(user_id=request.user.id) #for profile picture of nurse in sidebar
-    appointments=models.Appointment.objects.all().filter(status=True,nurseId=request.user.id)
-    patientid=[]
-    for a in appointments:
-        patientid.append(a.patientId)
-    patients=models.Patient.objects.all().filter(status=True,user_id__in=patientid)
-    appointments=zip(appointments,patients)
-    return render(request,'hospital/nurse_delete_appointment.html',{'appointments':appointments,'nurse':nurse})
-
-
-
-@login_required(login_url='nurselogin')
-@user_passes_test(is_nurse)
-def delete_appointment_view(request,pk):
-    appointment=models.Appointment.objects.get(id=pk)
-    appointment.delete()
-    nurse=models.Nurse.objects.get(user_id=request.user.id) #for profile picture of nurse in sidebar
-    appointments=models.Appointment.objects.all().filter(status=True,nurseId=request.user.id)
-    patientid=[]
-    for a in appointments:
-        patientid.append(a.patientId)
-    patients=models.Patient.objects.all().filter(status=True,user_id__in=patientid)
-    appointments=zip(appointments,patients)
-    return render(request,'hospital/nurse_delete_appointment.html',{'appointments':appointments,'nurse':nurse})
-
-
-"""
-
 #---------------------------------------------------------------------------------
 #------------------------ NURSE RELATED VIEWS END ------------------------------
 #---------------------------------------------------------------------------------
-
 
 
 #---------------------------------------------------------------------------------
@@ -1307,27 +1193,7 @@ def delete_appointment_view(request,pk):
 @login_required(login_url='receptionistlogin')
 @user_passes_test(is_receptionist)
 def receptionist_dashboard_view(request):
-    
-    #for three cards
-    """
-    patientcount=models.Patient.objects.all().filter(status=True,assignedNurseId=request.user.id).count()
-    appointmentcount=models.Appointment.objects.all().filter(status=True,doctorId=request.user.id).count()
-    patientdischarged=models.PatientDischargeDetails.objects.all().distinct().filter(assignedNurseName=request.user.first_name).count()
-
-    #for  table in nurse dashboard
-    appointments=models.Appointment.objects.all().filter(status=True,nurseId=request.user.id).order_by('-id')
-    patientid=[]
-    for a in appointments:
-        patientid.append(a.patientId)
-    
-    patients=models.Patient.objects.all().filter(status=True,user_id__in=patientid).order_by('-id')
-    appointments=zip(appointments,patients)
-    """
     mydict={
-    #'patientcount':patientcount,
-    #'appointmentcount':appointmentcount,
-    #'patientdischarged':patientdischarged,
-    #'appointments':appointments,
     'receptionist':models.Receptionist.objects.get(user_id=request.user.id), #for profile picture of receptionist in sidebar
     }
     
@@ -1375,86 +1241,9 @@ def receptionist_view_patient_view(request):
     patients=models.Patient.objects.all().filter(status=True)
     return render(request,'hospital/receptionist_view_patient.html',{'patients':patients})
 
-"""
-@login_required(login_url='nurselogin')
-@user_passes_test(is_nurse)
-def search_view(request):
-    nurse=models.Nurse.objects.get(user_id=request.user.id) #for profile picture of nurse in sidebar
-    # whatever user write in search box we get in query
-    query = request.GET['query']
-    patients=models.Patient.objects.all().filter(status=True,assignedNurseId=request.user.id).filter(Q(symptoms__icontains=query)|Q(user__first_name__icontains=query))
-    return render(request,'hospital/nurse_view_patient.html',{'patients':patients,'nurse':nurse})
-
-
-@login_required(login_url='nurselogin')
-@user_passes_test(is_nurse)
-def nurse_view_discharge_patient_view(request):
-    dischargedpatients=models.PatientDischargeDetails.objects.all().distinct().filter(assignedNurseName=request.user.first_name)
-    nurse=models.Nurse.objects.get(user_id=request.user.id) #for profile picture of nurse in sidebar
-    return render(request,'hospital/nurse_view_discharge_patient.html',{'dischargedpatients':dischargedpatients,'nurse':nurse})
-
-
-
-@login_required(login_url='nurselogin')
-@user_passes_test(is_nurse)
-def nurse_appointment_view(request):
-    nurse=models.Nurse.objects.get(user_id=request.user.id) #for profile picture of nurse in sidebar
-    return render(request,'hospital/nurse_appointment.html',{'nurse':nurse})
-
-
-
-@login_required(login_url='nurselogin')
-@user_passes_test(is_nurse)
-def nurse_view_appointment_view(request):
-    nurse=models.Nurse.objects.get(user_id=request.user.id) #for profile picture of nurse in sidebar
-    appointments=models.Appointment.objects.all().filter(status=True,nurseId=request.user.id)
-    patientid=[]
-    for a in appointments:
-        patientid.append(a.patientId)
-    patients=models.Patient.objects.all().filter(status=True,user_id__in=patientid)
-    appointments=zip(appointments,patients)
-    return render(request,'hospital/nurse_view_appointment.html',{'appointments':appointments,'nurse':nurse})
-
-
-
-@login_required(login_url='nurselogin')
-@user_passes_test(is_nurse)
-def nurse_delete_appointment_view(request):
-    nurse=models.Nurse.objects.get(user_id=request.user.id) #for profile picture of nurse in sidebar
-    appointments=models.Appointment.objects.all().filter(status=True,nurseId=request.user.id)
-    patientid=[]
-    for a in appointments:
-        patientid.append(a.patientId)
-    patients=models.Patient.objects.all().filter(status=True,user_id__in=patientid)
-    appointments=zip(appointments,patients)
-    return render(request,'hospital/nurse_delete_appointment.html',{'appointments':appointments,'nurse':nurse})
-
-
-
-@login_required(login_url='nurselogin')
-@user_passes_test(is_nurse)
-def delete_appointment_view(request,pk):
-    appointment=models.Appointment.objects.get(id=pk)
-    appointment.delete()
-    nurse=models.Nurse.objects.get(user_id=request.user.id) #for profile picture of nurse in sidebar
-    appointments=models.Appointment.objects.all().filter(status=True,nurseId=request.user.id)
-    patientid=[]
-    for a in appointments:
-        patientid.append(a.patientId)
-    patients=models.Patient.objects.all().filter(status=True,user_id__in=patientid)
-    appointments=zip(appointments,patients)
-    return render(request,'hospital/nurse_delete_appointment.html',{'appointments':appointments,'nurse':nurse})
-
-
-"""
-
 #---------------------------------------------------------------------------------
 #------------------------ RECEPTIONIST RELATED VIEWS END ------------------------------
 #---------------------------------------------------------------------------------
-
-
-
-
 
 
 #---------------------------------------------------------------------------------

@@ -27,7 +27,6 @@ class Doctor(models.Model):
         return "{} ({})".format(self.user.first_name,self.department)
 
 
-
 class Patient(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     profile_pic= models.ImageField(upload_to='profile_pic/PatientProfilePic/',null=True,blank=True,default='profile_pic/PatientProfilePic/patient.jpg')
@@ -35,7 +34,6 @@ class Patient(models.Model):
     mobile = models.CharField(max_length=20,null=False)
     symptoms = models.CharField(max_length=100,null=False)
     assignedDoctorId = models.PositiveIntegerField(null=True)
-    #assignedNurseId = models.PositiveIntegerField(null=True)
     admitDate=models.DateField(auto_now=True)
     status=models.BooleanField(default=False)
     @property
@@ -93,7 +91,6 @@ class Appointment(models.Model):
     appointmentDate=models.DateField(auto_now=True)
     description=models.TextField(max_length=500)
     status=models.BooleanField(default=False)
-
 
 
 class PatientDischargeDetails(models.Model):

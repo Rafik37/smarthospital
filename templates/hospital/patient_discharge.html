@@ -120,14 +120,13 @@
         <table>
           <tr>
             <td class="title">
-              <h1>Hospital Management</h1>
+              <h1>Smart Hospital</h1>
             </td>
 
             <td>
 
               Admit Date: {{admitDate}}<br>
               Release Date: {{releaseDate}}<br>
-              Days Spent: {{daySpent}}
             </td>
           </tr>
         </table>
@@ -185,7 +184,7 @@
       </td>
 
       <td>
-        {{roomCharge}}
+        {{roomCharge}} DT
       </td>
     </tr>
 
@@ -195,7 +194,7 @@
       </td>
 
       <td>
-        {{doctorFee}}
+        {{doctorFee}} DT
       </td>
     </tr>
 
@@ -205,8 +204,8 @@
       </td>
 
       <td>
-        {{medicineCost}}
-      </td>
+        {{medicineCost}} DT
+      </td> 
     </tr>
 
     <tr class="item last">
@@ -215,7 +214,7 @@
       </td>
 
       <td>
-        {{OtherCharge}}
+        {{OtherCharge}} DT
       </td>
     </tr>
 
@@ -223,7 +222,7 @@
       <td></td>
 
       <td>
-        Total Rupees : {{total}}
+      Total  : {{total}} DT
       </td>
     </tr>
 
@@ -231,7 +230,7 @@
 </div>
 <br><br>
 <div class="download">
-  <a style="background:red; width:500px;" href="{% url 'download-pdf' patientId  %}">Download</a>
+  <a style="background:#3F9696; width:500px;" href="{% url 'download-pdf' patientId  %}">Download</a>
 </div>
 
 

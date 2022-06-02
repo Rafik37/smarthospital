@@ -27,7 +27,7 @@
 - Can view/book/approve Appointment.
 
 ### Doctor
-- Apply for job in hospital. Then Login (Approval required by hospital admin, Then only doctor can login).
+- Signup (Apply for job in our smart hospital) Then Login (Approval required by smart hospital admin).
 - Can only view their patient details (symptoms, name, mobile ) assigned to that doctor by admin.
 - Can view their discharged(by admin) patient list.
 - Can view their Appointments, booked by admin.

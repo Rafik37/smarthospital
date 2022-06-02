@@ -20,7 +20,7 @@
 ## Functions
 ### Admin
 - Signup then login.
-- Can add/view/approve/reject/delete doctor (approve those doctor who applied for job in their hospital).
+- Can add/view/approve/reject/delete doctor.
 - Can add/view/approve/reject/discharge patient.
 - Can Generate/Download Invoice pdf.
 - Can view/book/approve Appointment.

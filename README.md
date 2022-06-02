@@ -7,6 +7,7 @@
 ### Homepage Cards
 ![homepage snap](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/homepage1.PNG?raw=true)
 ### Admin Login
+![admin login](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/admin.PNG?raw=true)
 ![admin login](https://github.com/Rafik37/hospitalmanagement/blob/master/static/screenshots/adminlogin.PNG?raw=true)
 ====================================================================================================================
 ### Admin Dashboard
@@ -26,7 +27,7 @@
 - Can view/book/approve Appointment.
 
 ### Doctor
-- Apply for job in hospital. Then Login (Approval required by hospital admin, Then only doctor can login).
+- Signup (Apply for job in our smart hospital) Then Login (Approval required by smart hospital admin).
 - Can only view their patient details (symptoms, name, mobile ) assigned to that doctor by admin.
 - Can view their discharged(by admin) patient list.
 - Can view their Appointments, booked by admin.
@@ -42,21 +43,21 @@
 ---
 
 ## HOW TO RUN THIS PROJECT
-- Install Python(3.7.6) (Dont Forget to Tick Add to Path while installing Python)
-- Open Terminal and Execute Following Commands :
+- Install Python
+- Execute Following Commands :
 ```
 pip install django==3.0.5
 pip install django-widget-tweaks
 pip install xhtml2pdf
+pip install djangorestframework
 ```
-- Download This Project Zip Folder and Extract it
-- Move to project folder in Terminal. Then run following Commands :
+- Run following Commands :
 ```
 py manage.py makemigrations
 py manage.py migrate
 py manage.py runserver
 ```
-- Now enter following URL in Your Browser Installed On Your Pc
+- Now enter the following URL
 ```
 http://127.0.0.1:8000/
 ```
